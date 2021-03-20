@@ -1,0 +1,227 @@
+<ngx-spinner> </ngx-spinner>
+<!-- table  starts-->
+<div class="container-fluid" *ngIf="editzone == false && addzone == false">
+    <mat-card class="maincard">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <h2>Manage Zones</h2>
+                </div>
+                <div class="col-12 col-md-6">
+                    <button mat-raised-button color="primary" class="addzones" (click)="AddZone()">
+            <i class="fa fa-plus"></i> Add Zones
+          </button>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-12 col-md-2">
+                    <select class="form-control">
+            <option>Select Entries</option>
+            <option>10</option>
+            <option>10</option>
+            <option>10</option>
+            <option>10</option>
+          </select>
+                </div>
+                <div class="col-12 col-md-3 ml-auto">
+                    <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                            <mat-label> <i class="fa fa-search"></i> Search </mat-label>
+                            <input matInput placeholder="Enter Value" value="" />
+                        </mat-form-field>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="table table-stripped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Zone Code</th>
+                                    <th>Zone Name</th>
+                                    <th>Country</th>
+                                    <th>City</th>
+
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Z001</td>
+                                    <td>Rt Nagar</td>
+                                    <td>India</td>
+                                    <td>Bangalore</td>
+
+                                    <td>
+                                        <mat-icon color="primary" class="m-1" matTooltip="View">visibility</mat-icon>
+                                        <mat-icon color="accent" class="m-1" matTooltip="Edit" (click)="EditZone()">
+                                            border_color</mat-icon>
+                                        <mat-icon color="warn" matTooltip="Delete">delete</mat-icon>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Z002</td>
+                                    <td>Cbi Road</td>
+                                    <td>India</td>
+                                    <td>Bangalore</td>
+
+                                    <td>
+                                        <mat-icon color="primary" class="m-1" matTooltip="View">visibility</mat-icon>
+                                        <mat-icon color="accent" class="m-1" matTooltip="Edit" (click)="EditZone()">
+                                            border_color</mat-icon>
+                                        <mat-icon color="warn" matTooltip="Delete">delete</mat-icon>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Z003</td>
+                                    <td>Mekhri Circle</td>
+                                    <td>India</td>
+                                    <td>Bangalore</td>
+
+                                    <td>
+                                        <mat-icon color="primary" class="m-1" matTooltip="View">visibility</mat-icon>
+                                        <mat-icon color="accent" class="m-1" matTooltip="Edit" (click)="EditZone()">
+                                            border_color</mat-icon>
+                                        <mat-icon color="warn" matTooltip="Delete">delete</mat-icon>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Z004</td>
+                                    <td>Hebbal</td>
+                                    <td>India</td>
+                                    <td>Bangalore</td>
+
+                                    <td>
+                                        <mat-icon color="primary" class="m-1" matTooltip="View">visibility</mat-icon>
+                                        <mat-icon color="accent" class="m-1" matTooltip="Edit" (click)="EditZone()">
+                                            border_color</mat-icon>
+                                        <mat-icon color="warn" matTooltip="Delete">delete</mat-icon>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</div>
+<!-- table ends -->
+
+<!-- add zone -->
+<mat-card class="maincard" *ngIf="addzone == true">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Add Zones</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center align-self-center">
+            <div class="col-12 col-md-5">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width1">
+                        <mat-label>Zone Code</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let zone of Zones" [value]="zone.value" style="font-size: 16px">
+                                {{ zone.viewValue }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </form>
+            </div>
+            <div class="col-12 col-md-5">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Country</mat-label>
+                        <input matInput placeholder="Enter The Name" />
+                    </mat-form-field>
+                </form>
+            </div>
+        </div>
+        <div class="row justify-content-center align-self-center">
+            <div class="col-12 col-md-5">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Zone Name</mat-label>
+                        <input matInput placeholder="Enter The Name" />
+                    </mat-form-field>
+                </form>
+            </div>
+            <div class="col-12 col-md-5">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>City</mat-label>
+                        <input matInput placeholder="Enter The Name" />
+                    </mat-form-field>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="text-right">
+        <button mat-raised-button color="primary" class="m-1">Save</button>
+        <button mat-raised-button color="warn" (click)="Cancel()">Close</button>
+    </div>
+</mat-card>
+<!-- add zone ends -->
+
+<!-- edit zone starts -->
+<mat-card class="maincard" *ngIf="editzone == true">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Edit Zones</h2>
+            </div>
+        </div>
+
+        <!-- justify-content-center align-self-center -->
+
+        <div class="row justify-content-center align-self-center">
+            <div class="col-12 col-md-5">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width1">
+                        <mat-label>Zone Code</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let zone of Zones" [value]="zone.value" style="font-size: 16px">
+                                {{ zone.viewValue }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </form>
+            </div>
+            <div class="col-12 col-md-5">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Country</mat-label>
+                        <input matInput placeholder="Enter The Name" />
+                    </mat-form-field>
+                </form>
+            </div>
+        </div>
+
+        <div class="row justify-content-center align-self-center">
+            <div class="col-12 col-md-5">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Zone Name</mat-label>
+                        <input matInput placeholder="Enter The Name" />
+                    </mat-form-field>
+                </form>
+            </div>
+            <div class="col-12 col-md-5">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>City</mat-label>
+                        <input matInput placeholder="Enter The Name" />
+                    </mat-form-field>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="text-right">
+        <button mat-raised-button color="primary" class="m-1">Save</button>
+        <button mat-raised-button color="warn" (click)="Cancel()">Close</button>
+    </div>
+</mat-card>
+<!-- edit zones ends -->

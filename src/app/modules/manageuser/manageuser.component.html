@@ -1,0 +1,460 @@
+<ngx-spinner> </ngx-spinner>
+<div class="container-fluid" *ngIf="edituser == false && adduser == false">
+    <mat-card class="maincard">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <h2 class="user">Manage User</h2>
+                </div>
+                <div class="col-12 col-md-6">
+                    <button mat-raised-button color="primary" class="adduser" (click)="AddUser()">
+            <i class="fa fa-plus"></i> Add User
+          </button>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-12 col-md-2">
+                    <select class="form-control entries">
+            <option>Select Entries</option>
+            <option>10</option>
+            <option>10</option>
+            <option>10</option>
+            <option>10</option>
+          </select>
+                </div>
+                <div class="col-12 col-md-3 ml-auto">
+                    <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                            <mat-label><i class="fa fa-search"></i> Search</mat-label>
+                            <input matInput placeholder="Enter Value" value="" />
+                        </mat-form-field>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="table table-stripped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>User Id</th>
+                                    <th>Name</th>
+                                    <th>Contact</th>
+                                    <th>Mail</th>
+                                    <th>Address</th>
+                                    <th>Role</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>A056</td>
+                                    <td>Rahul</td>
+                                    <td>Admin</td>
+                                    <td>Rahul@gmail.com</td>
+                                    <td>Rt Nagar</td>
+                                    <td>82738938</td>
+                                    <td>
+                                        <mat-icon color="accent" class="m-1" matTooltip="Edit" (click)="EditUser()">
+                                            border_color</mat-icon>
+                                        <mat-icon color="warn" matTooltip="Delete">delete</mat-icon>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>A080</td>
+                                    <td>Rakesh</td>
+                                    <td>New Admin</td>
+                                    <td>Rakesh@gmail.com</td>
+                                    <td>Kammanahalli</td>
+                                    <td>82738938</td>
+                                    <td>
+                                        <mat-icon color="accent" class="m-1" matTooltip="Edit">
+                                            border_color</mat-icon>
+                                        <mat-icon color="warn" matTooltip="Delete">delete</mat-icon>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>A056</td>
+                                    <td>suresh</td>
+                                    <td>Internal Admin</td>
+                                    <td>suresh@gmail.com</td>
+                                    <td>Vijay Nagar</td>
+                                    <td>82738938</td>
+                                    <td>
+                                        <mat-icon color="accent" class="m-1" matTooltip="Edit">
+                                            border_color</mat-icon>
+                                        <mat-icon color="warn" matTooltip="Delete">delete</mat-icon>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>A075</td>
+                                    <td>Vijay</td>
+                                    <td>Internal Admin</td>
+                                    <td>vijay@gmail.com</td>
+                                    <td>Rajaji Nagar</td>
+                                    <td>82738938</td>
+                                    <td>
+                                        <mat-icon color="accent" class="m-1" matTooltip="Edit">
+                                            border_color</mat-icon>
+                                        <mat-icon color="warn" matTooltip="Delete">delete</mat-icon>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</div>
+<!-- table ends -->
+
+<!-- adduser starts -->
+<div class="container-fluid">
+    <mat-card class="maincard" *ngIf="adduser == true">
+        <div class="container">
+            <mat-horizontal-stepper>
+                <mat-step label="Add Details">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <h4>Add Details *</h4>
+                            </div>
+                        </div>
+
+                        <div class="row mt-2">
+                            <div class="col-12 col-md-6">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label> Name</mat-label>
+                                        <input matInput placeholder="Enter The  Name" />
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Role</mat-label>
+                                        <mat-select>
+                                            <mat-option *ngFor="let user of users" [value]="user.value">
+                                                {{ user.viewValue }}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- 2nd row -->
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>ID.Number</mat-label>
+                                        <input matInput placeholder="Enter The Id  Number" />
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Description</mat-label>
+                                        <input matInput placeholder="Enter The  Description" />
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- 2nd row ends -->
+                        <!-- 3rd row -->
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Mail Address</mat-label>
+                                        <input matInput placeholder="Enter The Mail Address" />
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Contact</mat-label>
+                                        <input matInput placeholder="Enter The Contact Number" />
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- 3rd row ends -->
+                        <!-- 4th row -->
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Address</mat-label>
+                                        <textarea matInput placeholder="Enter The Address"></textarea>
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- 4th row ends -->
+                        <div>
+                            <button color="warn" mat-raised-button matStepperNext>Next</button>
+                        </div>
+                    </div>
+                </mat-step>
+                <mat-step label="Additional Details">
+                    <!-- <p>shipping</p> -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <h4>Additional Details *</h4>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-12 col-md-6">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label> Name</mat-label>
+                                        <input matInput placeholder="Enter The Name" />
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Role</mat-label>
+                                        <input matInput placeholder="Enter The Role" />
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- 2nd row -->
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>ID.Number</mat-label>
+                                        <input matInput placeholder="Enter The Id Number" />
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Description</mat-label>
+                                        <input matInput placeholder="Enter The  Description" />
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- 2nd row ends -->
+                        <!-- 3rd row -->
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Mail Address</mat-label>
+                                        <input matInput placeholder="Enter The Mail  Address" />
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Contact</mat-label>
+                                        <input matInput placeholder="Enter The Contact Number" />
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- 3rd row ends -->
+                        <!-- 4th row -->
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Address</mat-label>
+                                        <textarea matInput placeholder="Enter The Address"></textarea>
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- 4th row ends -->
+                        <div>
+                            <button color="primary" class="m-1" mat-raised-button matStepperPrevious>
+              Previous
+            </button>
+                            <button color="warn" mat-raised-button matStepperNext>Next</button>
+                        </div>
+                    </div>
+                </mat-step>
+                <mat-step label="Others">
+                    <!-- <p>shipping</p> -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <h4>Others *</h4>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-12 col-md-5">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label> Name</mat-label>
+                                        <input matInput placeholder="Enter The Name" />
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                            <div class="col-12 col-md-7">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Role</mat-label>
+                                        <input matInput placeholder="Enter The  Role" />
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- 2nd row -->
+                        <div class="row">
+                            <div class="col-12 col-md-5">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>ID.Number</mat-label>
+                                        <input matInput placeholder="Enter The Id Number" />
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                            <div class="col-12 col-md-7">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Description</mat-label>
+                                        <input matInput placeholder="Enter The Description" />
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- 2nd row ends -->
+                        <!-- 3rd row -->
+                        <div class="row">
+                            <div class="col-12 col-md-5">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Mail Address</mat-label>
+                                        <input matInput placeholder="Enter The Mail Address" />
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                            <div class="col-12 col-md-7">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Contact</mat-label>
+                                        <input matInput placeholder="Enter The Contact Number" />
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- 3rd row ends -->
+                        <!-- 4th row -->
+                        <div class="row">
+                            <div class="col-12 col-md-5">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Address</mat-label>
+                                        <textarea matInput placeholder="Enter The Address"></textarea>
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- 4th row ends -->
+                        <div>
+                            <button color="primary" class="m-1" mat-raised-button matStepperPrevious>
+              Previous
+            </button>
+                            <button color="warn" mat-raised-button matStepperNext>Next</button>
+                        </div>
+                    </div>
+                </mat-step>
+            </mat-horizontal-stepper>
+            <div class="text-right">
+                <button mat-raised-button color="primary" class="m-1">Save</button>
+                <button mat-raised-button color="warn" (click)="Cancel()">Close</button>
+            </div>
+        </div>
+    </mat-card>
+</div>
+<!-- adduser ends -->
+
+<!-- edit user starts -->
+<div class="container-fluid">
+    <mat-card class="maincard" *ngIf="edituser == true">
+        <div class="container">
+            `
+            <div class="row">
+                <div class="col-12">
+                    <h2>Edit User</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>User Id</mat-label>
+                            <input matInput placeholder="Enter User Id" />
+                        </mat-form-field>
+                    </form>
+                </div>
+                <div class="col-12 col-md-6">
+                    <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Name</mat-label>
+                            <input matInput placeholder="Enter The Name" />
+                        </mat-form-field>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Contact</mat-label>
+                            <input matInput placeholder="Enter The Name" />
+                        </mat-form-field>
+                    </form>
+                </div>
+                <div class="col-12 col-md-6">
+                    <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Mail</mat-label>
+                            <input matInput placeholder="Enter The Name" />
+                        </mat-form-field>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Adress</mat-label>
+                            <input matInput placeholder="Enter The Name" />
+                        </mat-form-field>
+                    </form>
+                </div>
+                <div class="col-12 col-md-6">
+                    <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Role</mat-label>
+                            <input matInput placeholder="Enter The Name" />
+                        </mat-form-field>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="text-right">
+            <button mat-raised-button color="primary" class="m-1">Save</button>
+            <button mat-raised-button color="warn" (click)="Cancel()">Close</button>
+        </div>
+    </mat-card>
+</div>
+<!-- edit user ends -->

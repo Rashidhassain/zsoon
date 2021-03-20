@@ -1,0 +1,453 @@
+<ngx-spinner> </ngx-spinner>
+<!-- table starts -->
+<div class="container-fluid" *ngIf="editfleet == false && addfleet == false && viewfleet == false">
+    <mat-card class="maincard">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <h2>Manage Fleet</h2>
+                </div>
+                <div class="col-12 col-md-6">
+                    <button mat-raised-button color="primary" class="addfleet" (click)="AddFleet()">
+            <i class="fa fa-plus"></i> Add Fleet
+          </button>
+                </div>
+            </div>
+            <hr />
+
+            <div class="row">
+                <div class="col-12 col-md-2">
+                    <select class="form-control">
+            <option>Select Entries</option>
+            <option>10</option>
+            <option>10</option>
+            <option>10</option>
+            <option>10</option>
+          </select>
+                </div>
+
+                <div class="col-12 col-md-3 ml-auto">
+                    <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                            <mat-label><i class="fa fa-search"></i> Search</mat-label>
+                            <input matInput placeholder="Enter Value" value="" />
+                        </mat-form-field>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="table table-stripped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Fleet Id</th>
+                                    <th>Bike Type</th>
+                                    <th>Bike Stand Name</th>
+                                    <th>Operator Name</th>
+                                    <th>Mac Id</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1028</td>
+                                    <td>Trip</td>
+                                    <td>Rt Nagar</td>
+                                    <td>Rahul</td>
+                                    <td>M012</td>
+                                    <td>
+                                        <mat-icon color="primary" class="m-1" matTooltip="View" (click)="ViewFleet()">visibility</mat-icon>
+                                        <mat-icon color="accent" class="m-1" matTooltip="Edit" (click)="EditFleet()">
+                                            border_color</mat-icon>
+                                        <mat-icon color="warn" matTooltip="Delete">delete</mat-icon>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2011</td>
+                                    <td>Trip</td>
+                                    <td>Malleshwaram</td>
+                                    <td>Suresh</td>
+                                    <td>M023</td>
+                                    <td>
+                                        <mat-icon color="primary" class="m-1" matTooltip="View" routerLink="/viewfleet">visibility</mat-icon>
+                                        <mat-icon color="accent" class="m-1" matTooltip="Edit" routerLink="/editfleet">
+                                            border_color</mat-icon>
+                                        <mat-icon color="warn" matTooltip="Delete">delete</mat-icon>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1009</td>
+                                    <td>Luggage</td>
+                                    <td>rajaji Nagar</td>
+                                    <td>Rakesh</td>
+                                    <td>M012</td>
+                                    <td>
+                                        <mat-icon color="primary" class="m-1" matTooltip="View" routerLink="/viewfleet">visibility</mat-icon>
+                                        <mat-icon color="accent" class="m-1" matTooltip="Edit" routerLink="/editfleet">
+                                            border_color</mat-icon>
+                                        <mat-icon color="warn" matTooltip="Delete">delete</mat-icon>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</div>
+<!-- table ends -->
+
+<!-- add fleet starts -->
+<mat-card class="maincard" *ngIf="addfleet == true">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="ml-4">Add Fleet</h2>
+            </div>
+        </div>
+        <mat-horizontal-stepper>
+            <mat-step label="Fleet Details">
+                <!-- <p>shipping</p> -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>Fleet Details *</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <form class="example-form">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Fleet Id</mat-label>
+                                    <input matInput placeholder="Enter Fleet Id" />
+                                </mat-form-field>
+                            </form>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <form class="example-form">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Bike Type</mat-label>
+                                    <input matInput placeholder="Enter Bike Type" />
+                                </mat-form-field>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- 2nd row -->
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <form class="example-form">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Bike Stand Name</mat-label>
+                                    <input matInput placeholder="Enter Bike Stand Name" />
+                                </mat-form-field>
+                            </form>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <form class="example-form">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Operator Name</mat-label>
+                                    <input matInput placeholder="Enter Operator Name" />
+                                </mat-form-field>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- 2nd row ends -->
+
+                    <!-- 4th row -->
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <form class="example-form">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Mac Id</mat-label>
+                                    <input matInput placeholder="Enter Mac Id" />
+                                </mat-form-field>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- 4th row ends -->
+
+                    <div>
+                        <button color="warn" mat-raised-button matStepperNext>Next</button>
+                    </div>
+                </div>
+            </mat-step>
+
+            <mat-step label="Images">
+                <!-- <p>shipping</p> -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>Images *</h4>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button color="primary" mat-raised-button matStepperPrevious>
+            Previous
+          </button>
+                    <button color="warn" mat-raised-button matStepperNext>Next</button>
+                </div>
+            </mat-step>
+            <mat-step label="Description">
+                <!-- <p>shipping</p> -->
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>Description *</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p style="text-align: justify">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat illum eos minus beatae accusamus odit laborum inventore sapiente, autem quae consectetur eum, dignissimos, repellendus exercitationem ad! Eligendi nemo obcaecati sed.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button color="primary" mat-raised-button matStepperPrevious>
+            Previous
+          </button>
+                </div>
+            </mat-step>
+        </mat-horizontal-stepper>
+        <div class="text-right">
+            <button mat-raised-button color="primary" class="m-1">Save</button>
+            <button mat-raised-button color="warn" (click)="Cancel()">Close</button>
+        </div>
+    </div>
+</mat-card>
+<!-- add fleet ends -->
+
+<!-- edit fleet starts -->
+<mat-card class="maincard" *ngIf="editfleet == true">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Edit Fleet</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-5">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Fleet Id</mat-label>
+                        <input matInput placeholder="Enter The Name" />
+                    </mat-form-field>
+                </form>
+            </div>
+            <div class="col-12 col-md-5">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Bike Type</mat-label>
+                        <input matInput placeholder="Enter Bike Stand Name" />
+                    </mat-form-field>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-5">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Bike Stand Name</mat-label>
+                        <input matInput placeholder="Enter Operator Name" />
+                    </mat-form-field>
+                </form>
+            </div>
+            <div class="col-12 col-md-5">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Operator Name</mat-label>
+                        <input matInput placeholder="Enter Street Adress" />
+                    </mat-form-field>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-5">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Mac Id</mat-label>
+                        <input matInput placeholder="Enter Number Of Bikes" />
+                    </mat-form-field>
+                </form>
+            </div>
+            <div class="col-12 col-md-5">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Contact</mat-label>
+                        <input matInput placeholder="Enter Your Contact" type="number" />
+                    </mat-form-field>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="text-right">
+        <button mat-raised-button color="primary" class="m-1">Save</button>
+        <button mat-raised-button color="warn" (click)="Cancel()">Close</button>
+    </div>
+</mat-card>
+<!-- edit fleet ends -->
+
+<!-- view fleet starts -->
+<mat-card class="maincard" *ngIf="viewfleet == true">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h2>View Details</h2>
+            </div>
+            <div class="col-12 col-md-6">
+                <button mat-raised-button color="primary" style="float: right" (click)="Cancel()">
+          Back
+        </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <mat-tab-group>
+                    <mat-tab label="Current Location">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15548.745105112228!2d77.59631589752003!3d13.023806806290233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17af687d41eb%3A0x2099179b658fa679!2sCentral%20Bank%20of%20India!5e0!3m2!1sen!2sin!4v1606394005589!5m2!1sen!2sin"
+                            width="1110" height="600" class="iframe" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        <!-- </div> -->
+                        <!-- </div> -->
+                        <!-- </div> -->
+                    </mat-tab>
+                    <mat-tab label="Number Of Bookings">
+                        <div class="container-fluid">
+                            <div class="container-fluid mt-2">
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <h2>Number Of Bookings</h2>
+                                    </div>
+                                </div>
+                                <hr />
+
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <select class="form-control">
+                      <option>Select Entries</option>
+                      <option>10</option>
+                      <option>10</option>
+                      <option>10</option>
+                      <option>10</option>
+                    </select>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                        <form class="example-form">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label><i class="fa fa-search"></i> Search</mat-label>
+                                                <input matInput placeholder="Enter Value" value="" />
+                                            </mat-form-field>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 colmd-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-stripped table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Role</th>
+                                                        <th>Id</th>
+                                                        <th>Description</th>
+                                                        <th>Mail</th>
+                                                        <th>Address</th>
+                                                        <th>Contact</th>
+
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Rahul</td>
+                                                        <td>Admin</td>
+                                                        <td>A056</td>
+                                                        <td>This Role Is For Admin</td>
+                                                        <td>Rahul@gmail.com</td>
+                                                        <td>Rt Nagar</td>
+                                                        <td>82738938</td>
+
+                                                        <td>
+                                                            <!-- <mat-icon color="primary" class="m-1" matTooltip="View" routerLink="/viewoperator">visibility</mat-icon>   -->
+
+                                                            <mat-icon color="accent" class="m-1" matTooltip="Edit">
+                                                                border_color</mat-icon>
+
+                                                            <mat-icon color="warn" matTooltip="Delete">delete</mat-icon>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Rakesh</td>
+                                                        <td>New Admin</td>
+                                                        <td>A080</td>
+                                                        <td>This Role Is For New Admin</td>
+                                                        <td>Rakesh@gmail.com</td>
+                                                        <td>Kammanahalli</td>
+                                                        <td>82738938</td>
+                                                        <td>
+                                                            <!-- <mat-icon color="primary" class="m-1" matTooltip="View" routerLink="/viewoperator">visibility</mat-icon>   -->
+
+                                                            <mat-icon color="accent" class="m-1" matTooltip="Edit">
+                                                                border_color</mat-icon>
+
+                                                            <mat-icon color="warn" matTooltip="Delete">delete</mat-icon>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>suresh</td>
+                                                        <td>Internal Admin</td>
+                                                        <td>A056</td>
+                                                        <td>This Role Is For Internal Admin</td>
+                                                        <td>suresh@gmail.com</td>
+                                                        <td>Vijay Nagar</td>
+                                                        <td>82738938</td>
+                                                        <td>
+                                                            <!-- <mat-icon color="primary" class="m-1" matTooltip="View" routerLink="/viewoperator">visibility</mat-icon>   -->
+
+                                                            <mat-icon color="accent" class="m-1" matTooltip="Edit">
+                                                                border_color</mat-icon>
+
+                                                            <mat-icon color="warn" matTooltip="Delete">delete</mat-icon>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Vijay</td>
+                                                        <td>Internal Admin</td>
+                                                        <td>A075</td>
+                                                        <td>This Role Is For Internal Admin</td>
+                                                        <td>vijay@gmail.com</td>
+                                                        <td>Rajaji Nagar</td>
+                                                        <td>82738938</td>
+                                                        <td>
+                                                            <!-- <mat-icon color="primary" class="m-1" matTooltip="View" routerLink="/viewoperator">visibility</mat-icon>   -->
+
+                                                            <mat-icon color="accent" class="m-1" matTooltip="Edit">
+                                                                border_color</mat-icon>
+
+                                                            <mat-icon color="warn" matTooltip="Delete">delete</mat-icon>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- </mat-card> -->
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Status"> </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+    </div>
+</mat-card>
+<!-- view fleet ends -->

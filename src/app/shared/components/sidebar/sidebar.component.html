@@ -1,0 +1,82 @@
+<div class="accordion mt-5">
+    <div class="accordion-tab1">
+        <label class="label" routerLink="/dashboard">
+      <i class="fa fa-dashboard icon" routerLink="/default"></i>
+      <span class="name">Dashboard</span>
+    </label>
+    </div>
+    <div class="accordion-tab">
+        <input type="checkbox" id="toggle1" class="accordion-toggle" name="toggle" />
+        <label class="label" for="toggle1">
+      <i class="fa fa-gear icon"></i>
+      <span class="name">Adminstration</span>
+    </label>
+        <div class="accordion-content">
+            <ul class="ul">
+                <li class="mt-3 mb-2 list" routerLink="/manageuser">
+                    <a class="a"> <i class="fa fa-circle circle"></i>Manage User </a>
+                </li>
+                <li class="mt-3 mb-2 list" routerLink="/general">
+                    <a class="a"> <i class="fa fa-circle circle"></i>Manage General </a>
+                </li>
+                <li class="mt-3 mb-2 list" routerLink="/operator">
+                    <a class="a"> <i class="fa fa-circle circle"></i>Manage Operator </a>
+                </li>
+                <li class="mt-3 mb-2 list" routerLink="/managecustomer">
+                    <a class="a"> <i class="fa fa-circle circle"></i>Manage Customers </a>
+                </li>
+                <li class="mt-3 mb-2 list" routerLink="/managerole">
+                    <a class="a"> <i class="fa fa-circle circle"></i>Manage Role </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="accordion-tab5 mt-2">
+        <input type="checkbox" id="toggle5" class="accordion-toggle" name="toggle" />
+        <label class="label" for="toggle5">
+      <i class="fa fa-cogs icon"></i>
+      <span class="name">Operation</span>
+    </label>
+        <div class="accordion-content">
+            <ul class="ul">
+                <li class="mt-3 mb-2 list" routerLink="/managezones">
+                    <a class="a"> <i class="fa fa-circle circle"></i>Manage Zones </a>
+                </li>
+                <li class="mt-3 mb-2 list" routerLink="/managestand">
+                    <a class="a">
+                        <i class="fa fa-circle circle"></i>Manage Bike Stand
+                    </a>
+                </li>
+                <li class="mt-3 mb-2 list" routerLink="/managefleet">
+                    <a class="a"> <i class="fa fa-circle circle"></i>Manage Fleet </a>
+                </li>
+                <li class="mt-3 mb-2 list" routerLink="/manageprice">
+                    <a class="a">
+                        <i class="fa fa-circle circle"></i>Manage Price Plan
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="accordion-tab4 mt-1">
+        <input type="checkbox" id="toggle3" class="accordion-toggle" name="toggle" />
+        <label class="label" for="toggle3">
+      <i class="fa fa-file icon" style="padding: 8px"></i>
+      <span class="name">Reports</span>
+    </label>
+        <div class="accordion-content">
+            <ul class="ul">
+                <li class="mt-3 mb-2  list">
+                    <a class="a" routerLink="/salesreport">
+                        <i class="fa fa-circle circle"></i>Sales Report
+                    </a>
+                </li>
+                <li class="mt-3 mb-2  list">
+                    <a class="a" routerLink="/bikesreports">
+                        <i class="fa fa-circle circle"></i>Bike Reports
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

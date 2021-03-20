@@ -1,0 +1,38 @@
+<ngx-spinner>
+</ngx-spinner>
+<section class="bg">
+    <div class="content">
+        <div class="from-content">
+            <div class="text-center img">
+                <img src="../../assets/download.png" alt="" class="zsoonimg" />
+            </div>
+
+            <form class="example-form mt-3">
+                <mat-form-field class="example-full-width">
+                    <mat-label><i class="fa fa-envelope"></i> Email</mat-label>
+                    <input matInput placeholder="Enter Mail" value="" type="email" />
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label><i class="fa fa-lock"></i> password</mat-label>
+                    <input matInput placeholder="Enter Password" value="" type="password" />
+                </mat-form-field>
+            </form>
+
+            <div class="mt-3 pl-3">
+                <a routerLink="/forgot-password" class="text-left forgotpassword">Forgot Password ?</a
+        >
+      </div>
+
+      <div class="text-center mt-4">
+        <button
+          class="btn btn-success btn-block mt-4"
+          routerLink="/dashboard"
+          (click)="submit()"
+        >
+          Login
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
